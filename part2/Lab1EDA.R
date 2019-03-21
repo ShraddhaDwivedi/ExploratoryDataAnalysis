@@ -1,0 +1,161 @@
+#Basic R Commands
+
+# 1.2. Declaring variables
+foo <- 2
+bar <- 4
+foo + bar
+result <- foo + bar
+result
+
+# 1.3. Creating vectors
+list <- c(2,4,6,8)
+list[2]
+list[1]
+list[0]
+list[5]
+
+# 1.4 basic arithmetic and boolean expressions
+# division
+10/2
+#exponential
+10^2
+#Multiplication
+4*5
+#Addition
+1+6
+#Equality
+2==0
+#Boolean
+(2+2)==4
+T==TRUE
+F && T
+F|| TRUE
+
+# 1.5. Creating a vector with several numbers
+vect= c(1,2,3,4,5,6,7,8)
+vect*2
+
+#1.6 calling pre-defined function on vector
+sqrt(vect)
+rev(vect)
+sort(vect)
+
+#1.7 giving name to the elements of a vector
+vect=c(2,4,6,9)
+names(vect)=c("1st","2nd","3rd","4th")
+vect
+
+vect["2nd"] <-20
+vect
+
+if((vect["4th"]%%2)==0)
+{
+  print(paste(vect["4th"],"is even"))
+} else {
+  print(paste(vect["4th"],"is odd"))
+  }
+  
+#1.10
+
+# Creating Function
+#function to print square and return square
+generateSquares <-function(x){
+  return(x^2)
+}
+a= generateSquares(4)
+print(a)
+
+#creating the function that takes arguements
+func_arguements <- function(a=1,b=2,c=3){
+  res <- a+(b*c)
+  print(res)
+}
+
+# Calling by default
+#generate cubes for first 10 numbers
+generateCubes <- function(){
+  for (i in 1:10) {
+    print(i^3)
+    
+  }
+}
+generateCubes()
+
+# Calling by position
+sumFunction <- function(a,b,c){
+  result <- a+b+c
+  print(result)
+}
+sumFunction(2,4,5)
+
+# Calling by names
+sumFunction(a = 4, b = 5, c = 3)
+
+#1.12 Creating the data frame
+mydataframe <- data.frame(
+  stu_id = c (1:5),
+  stu_name = c("Bob","Pat","Jane","Peter","Han"),
+  
+  stringsAsFactors = FALSE #should characters be converted into fators
+)
+
+# Extract columns
+res <- data.frame(mydataframe$stu_id,mydataframe$stu_name)
+print(res)
+
+#Problem 1
+sales1<-c(12,14,16,29,30,45,19,20,16, 19, 34, 20)
+sales2<-rpois(12,34)  # random numbers, Poisson distribution, mean at 34, 12 numbers
+par(bg="cornsilk")
+
+plot(sales1, col="blue", type="o", ylim=c(0,100), xlab="Month", ylab="Sales" )
+title(main="Sales by Month")
+
+lines(sales2, type="o", pch=22, lty=2, col="red")
+grid(nx=NA, ny=NULL)
+legend("topright", inset=.05, c("Sales1","Sales2"), fill=c("blue","red"), horiz=TRUE)
+
+
+# Problem 2
+sales<-read.table(file.choose(), header=T)
+sales  # to verify that data has been read
+barplot(as.matrix(sales), main="Sales Data", ylab= "Total",beside=T, col=rainbow(5))
+
+#Problem 3
+
+fn<-boxplot(sales,col=c("orange","green"))$stats
+
+text(1.45, fn[3,2], paste("Median =", fn[3,2]), adj=0, cex=.7)
+text(0.45, fn[3,1],paste("Median =", fn[3,1]), adj=0, cex=.7)
+grid(nx=NA, ny=NULL)
+
+#Problem 4
+
+fb1<-read.csv(file.choose())
+aapl1<-read.csv(file.choose())
+par(bg="cornsilk")
+plot(aapl1$Adj.Close, col="blue", type="o", ylim=c(0,100), xlab="Days", ylab="Price" )
+lines(fb1$Adj.Close, type="o", pch=22, lty=2, col="red")
+legend("topright", inset=.05, c("Apple","Facebook"), fill=c("blue","red"), horiz=TRUE)
+hist(aapl1$Adj.Close, col=rainbow(8)) # for apple
+hist(fb1$Adj.Close, col=rainbow(8)) # for facebook
+
+# problem 5
+
+# Problem 6
+
+#Problem 7
+attach(mtcars)
+head(mtcars)
+plot(mtcars[c(1,3,4,5,6)], main="MTCARS Data")
+plot(mtcars[c(1,3,4,6)], main="MTCARS Data")
+plot(mtcars[c(1,3,4,6)], col=rainbow(5),main="MTCARS Data")
+
+# Problem 8
+library(ggplot2)
+ggplot(mtcars, aes(x=mpg, y=disp)) + geom_point()
+
+
+
+
+

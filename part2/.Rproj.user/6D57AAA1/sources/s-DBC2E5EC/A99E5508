@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1549655524872.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A99E5508",
+    "lastKnownWriteTime" : 1549676695,
+    "last_content_update" : 1550111855221,
+    "path" : "~/Lab1EDA/Lab1EDA.R",
+    "project_path" : "Lab1EDA.R",
+    "properties" : {
+        "cursorPosition" : "163,0",
+        "scrollLine" : "95",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
